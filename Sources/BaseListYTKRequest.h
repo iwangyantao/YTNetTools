@@ -18,5 +18,5 @@
 //@property(nonatomic,copy)NSString *listName;
 @property (nonatomic, assign) id <BaseListYTKRequestDelegate> listDelegate;
 - (void)loadData;
-- (void)loadMore;=
+- (void)loadMore;
 @end
