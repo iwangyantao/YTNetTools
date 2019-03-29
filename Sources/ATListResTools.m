@@ -8,6 +8,9 @@
 
 #import "ATListResTools.h"
 #import "BaseListYTKRequest.h"
+#import <MJExtension.h>
+#import <MJRefresh.h>
+
 @interface ATListResTools ()<BaseListYTKRequestDelegate>
 @property (nonatomic, strong) BaseListYTKRequest *listRes;
 @property (nonatomic, copy, readwrite) ListResToolsCallback listResToolsCallback;
