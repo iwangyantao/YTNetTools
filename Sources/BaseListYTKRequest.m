@@ -9,7 +9,7 @@
 #import "BaseListYTKRequest.h"
 #import "ATNetParamsTools.h"
 #import "CCNetResModel.h"
-#import <MJExtension.h>
+#import "MJExtension.h"
 
 @interface BaseListYTKRequest ()<YTKRequestDelegate>
 /** page */
