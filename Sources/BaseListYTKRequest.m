@@ -9,6 +9,7 @@
 #import "BaseListYTKRequest.h"
 #import "ATNetParamsTools.h"
 #import "CCNetResModel.h"
+#import <MJExtension.h>
 
 @interface BaseListYTKRequest ()<YTKRequestDelegate>
 /** page */
@@ -28,7 +29,7 @@
 {
     if (self = [super init]) {
         self.delegate = self;
-        self.baseURL = Domain_Base;
+        self.baseURL = "Domain_Base";
     }
     return self;
 }
