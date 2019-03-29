@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseYTKRequest.h"
+
 @class BaseYTKRequest,CCNetResModel;
 ///  HTTP Request method.
 //typedef NS_ENUM(NSInteger, BaseRequestMethod) {

@@ -7,7 +7,6 @@
 //
 
 #import "MSApi.h"
-#import "BaseYTKRequest.h"
 #import "CCNetResModel.h"
 
 @implementation MSApi
