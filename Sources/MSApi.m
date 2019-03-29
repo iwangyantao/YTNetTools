@@ -8,6 +8,7 @@
 
 #import "MSApi.h"
 #import "CCNetResModel.h"
+#import <MJExtension.h>
 
 @implementation MSApi
 
