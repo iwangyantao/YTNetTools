@@ -8,6 +8,7 @@
 
 #import "BaseListYTKRequest.h"
 #import "ATNetParamsTools.h"
+#import "CCNetResModel.h"
 
 @interface BaseListYTKRequest ()<YTKRequestDelegate>
 /** page */
