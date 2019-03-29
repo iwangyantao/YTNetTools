@@ -40,8 +40,6 @@
 
 - (void)listRequsetisSuccess:(BOOL)isSuccess isNoMoreData:(BOOL)isNoMoreData dataList:(NSArray *)listArr oresDict:(NSDictionary *)ores isRefresh:(BOOL)isRefresh
 {
-    
-
     self.isNoMoreData = isNoMoreData;
     if (self.scrollView.mj_footer.isRefreshing) {
         if (isNoMoreData) {
@@ -54,8 +52,6 @@
         [self.scrollView.mj_header endRefreshing];
     }
 }
-
-
 
 - (void)stop
 {

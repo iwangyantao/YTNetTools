@@ -10,7 +10,6 @@
 #import "ATNetParamsTools.h"
 #import "CCNetResModel.h"
 #import "MJExtension.h"
-
 @interface BaseListYTKRequest ()<YTKRequestDelegate>
 /** page */
 @property (nonatomic, assign) NSInteger page;
@@ -18,13 +17,9 @@
 @property (nonatomic, assign) BOOL isNoMoreDataBl;
 /** 是否是下拉刷新的 */
 @property (nonatomic, assign) BOOL isRefresh;
-
 @end
 
 @implementation BaseListYTKRequest
-
-
-
 - (instancetype)init
 {
     if (self = [super init]) {
@@ -33,39 +28,27 @@
     }
     return self;
 }
-
-
 ///请求入参
 - (nullable id)requestArgument
 {
     if (self.page) {
         self.param[@"page"] = @(self.page);
-
     } else {
         self.param[@"page"] = @1;
-
     }
 //    self.param[@"pageSize"] = @20;
 //    NSString *checksum = [CCTools getSignWithParams:self.param urlStr:@"" isIM:YES];
 //    self.param[@"sign"] = checksum;
 //    NSLog(@"列表形式的 参数：%@",self.param);
     [ATNetParamsTools getSignWithParams:self.param urlStr:nil];
-
     return self.param;
-    
 }
-
-
-
-
 - (void)loadData
 {
     self.page = 1;
     self.isRefresh = YES;
     self.isNoMoreDataBl = NO;
-
     [self start];
-    
 }
 
 - (void)loadMore
@@ -79,9 +62,6 @@
         }
     }
 }
-
-
-
 - (void)requestFinished:(__kindof YTKBaseRequest *)request
 {
     if (![request.responseObject isKindOfClass:[NSDictionary class]]) {
@@ -105,7 +85,6 @@
         return;
     }
     NSArray *dataArr = reqdict[@"data"];
-
     if (dataArr.count == 0) {
         self.isNoMoreDataBl = YES;
         if ([self.listDelegate respondsToSelector:@selector(listRequsetisSuccess:isNoMoreData:dataList:oresDict:isRefresh:)]) {
@@ -113,10 +92,8 @@
         }
          NSLog(@"没有数据了 --- %@ 返回： %@ 信息：%@ : 参数：%@", request.response, request.responseObject, request.error, self.param);
         self.page ++;
-
         return;
     }
-    
     
     id pageSize;
     if ([reqdict.allKeys containsObject:@"pageSize"]) {
@@ -135,17 +112,14 @@
         if ([self.listDelegate respondsToSelector:@selector(listRequsetisSuccess:isNoMoreData:dataList:oresDict:isRefresh:)]) {
             [self.listDelegate listRequsetisSuccess:YES isNoMoreData:self.isNoMoreDataBl dataList:dataArr oresDict:reqdict isRefresh:self.isRefresh];
             self.page ++;
-
         }
     }
 }
-
 - (void)requestFailed:(__kindof YTKBaseRequest *)request
 {
     id responseObject = request.responseObject;
     responseObject = ![responseObject isKindOfClass:[NSData class]] ? responseObject : @"";
     NSLog(@"错误地址 --- %@ 错误返回： %@ 错误信息：%@ : 错误参数：%@", request.response, responseObject, nil, self.param);
-
     if (self == nil) return;
     if (self.listDelegate == nil) return;
     if ([request.responseObject isKindOfClass:[NSDictionary class]]) {
@@ -154,7 +128,6 @@
         if ([reqdict.allKeys containsObject:@"typeCode"]) {
             code = reqdict[@"typeCode"];
         }
-
         if (code && [reqdict.allKeys containsObject:@"data"]) {
             if ([reqdict[@"data"] isKindOfClass:[NSArray class]]) {
                 CCNetResModel *netModel = [CCNetResModel mj_objectWithKeyValues:reqdict];
@@ -172,15 +145,12 @@
         }
     }
 }
-
-
 - (void)noMoreData:(BOOL)noMoreData resuest:(YTKRequest *)request
 {
     self.isNoMoreDataBl = noMoreData;
     if (self.listDelegate) {
         if ([self.listDelegate respondsToSelector:@selector(listRequsetisSuccess:isNoMoreData:dataList:oresDict:isRefresh:)]) {
             [self.listDelegate listRequsetisSuccess:NO isNoMoreData:noMoreData dataList:nil oresDict:nil isRefresh:self.isRefresh];
-            
         }
     }
  

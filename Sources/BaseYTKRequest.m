@@ -51,25 +51,20 @@
     }
 //    return YTKRequestMethodGET;
 }
-
 ///请求入参
 - (nullable id)requestArgument
 {
-
 //    NSString *checksum = [CCTools getSignWithParams:self.param urlStr:@"" isIM:YES];
 //    self.param[@"sign"] = checksum;
 //    NSLog(@"cansu :   %@",self.param);
     [ATNetParamsTools getSignWithParams:self.param urlStr:nil];
     return self.param;
 }
-
-
 ///请求寄存器，默认为http
 - (YTKRequestSerializerType)requestSerializerType
 {
     return YTKRequestSerializerTypeHTTP;
 }
-
 ///响应寄存器，默认JSON响应数据 详见 `responseObject`.
 - (YTKResponseSerializerType)responseSerializerType
 {
@@ -119,11 +114,9 @@
                     success(request.responseObject);
                 } else {
                     failure(request.responseObject);
-                    
                 }
             }
         }
-    
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         [self _failureWithRequest:request onComplete:^(BOOL msuccess, id responseData, NSError *error) {
             if (msuccess) {
@@ -133,11 +126,7 @@
             }
         }];
     }];
-    
-
 }
-
-
 - (void)_failureWithRequest:(YTKBaseRequest *)request onComplete:(void (^)(BOOL success, id responseData, NSError *error))block
 {
     if ([request.responseObject isKindOfClass:[NSDictionary class]]) {

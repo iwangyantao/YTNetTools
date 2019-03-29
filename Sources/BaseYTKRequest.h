@@ -6,7 +6,6 @@
 //  Copyright © 2017年 www.MicroSliverOperate.com. All rights reserved.
 //
 #import "YTKNetwork.h"
-#import <YTKNetwork/YTKNetwork.h>
 typedef NS_ENUM(NSInteger, BaseRequestMethod) {
     BaseRequestMethodGET = 0,
     BaseRequestMethodPOST,
@@ -19,7 +18,6 @@ typedef NS_ENUM(NSInteger, BaseRequestMethod) {
 typedef void(^BaseRequestCompletionBlock)(id resp);
 typedef void(^BaseRequestIsNoMoreBlock)(BOOL isNoMore);
 
-
 @interface BaseYTKRequest : YTKRequest
 /** 根域名 */
 @property(nonatomic,copy)NSString *baseURL;
@@ -31,10 +29,6 @@ typedef void(^BaseRequestIsNoMoreBlock)(BOOL isNoMore);
 @property(nonatomic,strong)NSDictionary *jsonV;
 /** 超时时长 */
 @property (nonatomic, assign) NSTimeInterval outTime;
-
-
-
-
 /**
  不需要分页的请求
 

@@ -14,7 +14,6 @@
     if ([dict.allKeys containsObject:@"sign"]) {
         [dict removeObjectForKey:@"sign"];
     }
-   
 //    ATUserInfoManager *model = [ATAppManager sharedAPPData].user;
 //    if (model.uuid.length > 1) {
 //        dict[@"uuid"] = model.uuid;
@@ -22,25 +21,20 @@
 //        dict[@"uuid"] = @"";
 //
 //    }
-    
     NSString *versionMain =
     [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
     if (versionMain) {
         dict[@"ver"] = versionMain;
     }
     dict[@"s"] = @1;
-    
-   
 //    NSString *platform = [UIDevice currentDevice].machineModelName;
 //    if (platform) {
 //        dict[@"dem"] = platform;
 //    }
-    
     NSString *phoneVersion = [[UIDevice currentDevice] systemVersion];
     if (phoneVersion) {
         dict[@"sysphoneVersion"] = phoneVersion;
     }
-    
 //    NSMutableString *contentString  =[NSMutableString string];
 //    NSArray *keys = [dict allKeys];
 //    NSArray *sortedArray = [keys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
