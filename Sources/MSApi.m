@@ -24,7 +24,7 @@
 + (void)getContentWithParams:(NSDictionary *)paramDict jsonValidator:(NSDictionary *)jsonValidator toURL:(NSString *)url baseURL:(NSString *)baseURL outTime:(NSTimeInterval)outTime onComplete:(void (^)(BOOL, CCNetResModel *, NSError *))block
 {
     //    NSLog(@"url    -------     %@",url);
-    baseURL = baseURL == nil ? Domain_Base : baseURL;
+//    baseURL = baseURL == nil ? Domain_Base : baseURL;
     BaseYTKRequest *ytk_request = [[BaseYTKRequest alloc]init];
     ytk_request.param = [NSMutableDictionary dictionaryWithDictionary:paramDict];
     ytk_request.baseURL = baseURL;
@@ -83,7 +83,7 @@
 
 + (void)sendPostContent:(NSDictionary *)paramDict jsonValidator:(NSDictionary *)jsonValidator toURL:(NSString *)url baseURL:(NSString *)baseURL outTime:(NSTimeInterval)outTime onComplete:(void (^)(BOOL, CCNetResModel *, NSError *))block
 {
-    baseURL = baseURL == nil ? Domain_Base : baseURL;
+//    baseURL = baseURL == nil ? Domain_Base : baseURL;
 
     BaseYTKRequest *ytk_request = [[BaseYTKRequest alloc]init];
     ytk_request.param = [NSMutableDictionary dictionaryWithDictionary:paramDict];
