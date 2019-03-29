@@ -29,7 +29,7 @@
 {
     if (self = [super init]) {
         self.delegate = self;
-        self.baseURL = "Domain_Base";
+        self.baseURL = @"Domain_Base";
     }
     return self;
 }
